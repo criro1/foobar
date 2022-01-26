@@ -1,0 +1,92 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "foo.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/bar": {
+      "post": {
+        "operationId": "Bar",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/fooBarResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/fooBarRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Foo"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "fooBarRequest": {
+      "type": "object",
+      "properties": {
+        "first": {
+          "$ref": "#/definitions/fooBarRequestFirst"
+        },
+        "second": {
+          "$ref": "#/definitions/fooBarRequestSecond"
+        },
+        "third": {
+          "type": "string"
+        }
+      }
+    },
+    "fooBarRequestFirst": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "fooBarRequestSecond": {
+      "type": "object",
+      "properties": {
+        "num": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        }
+      }
+    },
+    "fooBarResponse": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

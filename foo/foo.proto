@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package foo;
+
+import "google/api/annotations.proto";
+
+option go_package = ";foo";
+
+service Foo {
+    rpc Bar(BarRequest) returns (BarResponse) {
+        option (google.api.http) = {
+            post: "/bar"
+            body: "*"
+        };
+    }
+}
+
+message BarRequest {
+    oneof bar_requests {
+        BarRequestFirst first = 1;
+        BarRequestSecond second = 2;
+        string third = 3;
+    }
+}
+
+message BarRequestFirst {
+    repeated string id = 1;
+}
+
+message BarRequestSecond {
+    repeated int64 num = 1;
+}
+
+message BarResponse {
+    string text = 1;
+}
