@@ -146,9 +146,7 @@ func (g *GrpcServer) RegisterServicesToMux(defs []gateway.ServiceDef) (*runtime.
 	g.RegisterServices(defs)
 
 	serveMux := runtime.NewServeMux(runtime.WithMarshalerOption(
-		//runtime.MIMEWildcard, &runtime.JSONBuiltin{}),
-		//runtime.MIMEWildcard, &runtime.JSONPb{OrigName: true, EmitDefaults: true}),
-			runtime.MIMEWildcard, &JSONLocal{JSONPb: &runtime.JSONPb{OrigName: true, EmitDefaults: true}, JSONBuiltin: &runtime.JSONBuiltin{}}),
+		runtime.MIMEWildcard, &runtime.JSONPb{OrigName: true, EmitDefaults: true}),
 		runtime.WithForwardResponseOption(HTTPResponseModifier),
 		runtime.WithProtoErrorHandler(HTTPResponseErrorModifier))
 

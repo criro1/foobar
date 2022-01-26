@@ -46,36 +46,10 @@
     "fooBarRequest": {
       "type": "object",
       "properties": {
-        "first": {
-          "$ref": "#/definitions/fooBarRequestFirst"
-        },
-        "second": {
-          "$ref": "#/definitions/fooBarRequestSecond"
-        },
-        "third": {
-          "type": "string"
-        }
-      }
-    },
-    "fooBarRequestFirst": {
-      "type": "object",
-      "properties": {
         "id": {
           "type": "array",
           "items": {
             "type": "string"
-          }
-        }
-      }
-    },
-    "fooBarRequestSecond": {
-      "type": "object",
-      "properties": {
-        "num": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "format": "int64"
           }
         }
       }
